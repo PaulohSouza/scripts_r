@@ -6,7 +6,6 @@ library(multcompView)
 library(multcomp)
 library(ggplot2)
 library(ggthemes)
-library(multcompView)
 library(dplyr)
 
 #Abrir o Arquivo - Encontre sua planilha de dados
