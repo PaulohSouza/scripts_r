@@ -59,7 +59,7 @@ ui <- fluidPage(
       
       materialSwitch(
         inputId = "Id079",
-        label = "Success", 
+        label = "Ligado", 
         value = TRUE,
         status = "info"
       ),
@@ -82,10 +82,10 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   
-  opcao <- renderText({ input$Id023 })
+  opcao <- renderText({ input$Id038 })
   output$outTexto <- opcao
   
-  opcao2 <- renderText({ input$Id011 })
+  opcao2 <- renderText({ input$Id052 })
   output$outTexto2 <- opcao2
   
   observeEvent(input$bins,{
