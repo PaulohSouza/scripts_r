@@ -6,7 +6,7 @@ library(ggraph)
 library(dplyr)
 
 
-mtcars %>%
+Correl_Felipe %>%
    correlation(partial = TRUE) %>%
   plot()
 
