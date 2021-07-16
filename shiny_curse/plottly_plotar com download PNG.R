@@ -37,6 +37,8 @@ server<-function(input,output,session){
   })
 }
 
+ggplot() aes()
+
 shinyApp(ui,server)
 
 
