@@ -1,11 +1,101 @@
 setwd("C:/Users/paulosouza/Desktop/Entomologia/Mariana")
+library(nortest)
+library(lawstat)
+library(MASS)
+library(ggplot2)
+library(fpp)
 
-dados
+
 dados<- read.csv("3DA1A.csv", sep = ";", dec = ".")
 dados$Trat <- as.factor(dados$Trat)
 
-anova <- aov(dados$Mar ~ dados$Trat)
+
+bc <- boxcox(Mar + 1 ~ Trat, data = dados, lambda = seq(-5, 5, len = 20))
+
+plot(bc)
+
+hist(bc$y)
+
+
+shapiro.test(bc$y)
+
+x<- log(dados$Mar + 1)
+df <- data.frame(dados$Trat, dados$Rep, z)
+
+
+anova <- aov(z ~ Trat , data = dados)
 summary(anova)
+
+shapiro.test(anova$residuals)
+
+z <- sqrt(dados$Mar + 1)
+
+hist(x)
+
+library(ExpDes.pt)
+
+data(ex6)
+respAd
+View(est21Ad)
+Felipe$Material <- as.factor(Felipe$Material)
+Felipe$Adubodebase <- as.factor(Felipe$Adubodebase)
+Felipe$Adubodecobertura <- as.factor(Felipe$Adubodecobertura)
+c<- na.omit(rc_isolado2$nitratobase...9)
+View(c)
+
+Felipe <- rc_isolado2
+Felipe$base <- as.factor(Felipe$base)
+Felipe$cobertura<- as.factor(Felipe$base)
+Felipe$cobertura <- as.factor(Felipe$cobertura)
+
+x <- fat3.ad.dbc(Felipe$Material, Felipe$base, Felipe$cobertura, Felipe$Bloco, Felipe$produtividadescs...8, c,
+            quali = c(TRUE, TRUE, TRUE), mcomp = "snk", fac.names =
+              c("Material", "Adubo de Base", "Adubo de Cobertura"), sigT=0.05, sigF = 0.05)
+
+shapiro.test(x$residuos)
+
+hist(x$medias.fator2)
+
+
+data(ex6)
+attach(ex6)
+data(respAd)
+fat3.ad.dbc(fatorA, fatorB, fatorC, rep, resp, respAd,
+            quali = c(TRUE, TRUE, TRUE), mcomp = "snk", fac.names =
+              c("Fator A", "Fator B", "Fator C"), sigT=0.05, sigF = 0.05)
+
+respAd
+
+
+plot(Mar ~Trat, data = dados)
+
+mod <- lm(Mar+1 ~ Trat, data = dados)
+summary(mod)
+
+plot(mod)
+
+boxcox(mod)
+
+#Normalidade
+lillie.test(pbpibc)
+
+levene.test(dados$Mar, dados$Trat)
+
+#DISTRIBUICAO NORMAL
+ggplot(dados, aes(x = dados$Mar))+
+  geom_histogram(aes(y=..density..),bins=10,colour="black",fill="white")+geom_density(alpha=0.2, fill="#FF6666")
+#Determinacao lambda
+boxcox(dados.Mar...0.1 ~ Trat, data = df, lam= seq(-1,1,1/10))
+x
+dados
+df
+anova <- aov(df$dados.Mar...0.1 ~ dados$Trat)
+summary(anova)
+anova <- aov(rc_isolado2$produtividadescs...8 ~ rc_isolado2$Material + rc_isolado2$Bloco)
+summary(anova)
+
+shapiro.test(anova$residuals)
+
 
 saida <- ea1(dados, design=1, alpha=0.05, list = TRUE, p.adjust = 1, plot=1)
 print(saida)

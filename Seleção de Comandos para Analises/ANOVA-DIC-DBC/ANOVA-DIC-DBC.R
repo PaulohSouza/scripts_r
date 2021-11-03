@@ -4,7 +4,6 @@
 ##Lendo os dados
 
 dados<-read.table("DadosDIC.csv", h=T, sep=";")
-
 ## modelo y = T + e
 ## y - vari?vel resposta
 ## T - efeito de tratamento
@@ -12,6 +11,12 @@ dados<-read.table("DadosDIC.csv", h=T, sep=";")
 
 ##Transformando os efeitos em fatores
 dados$TRAT<-as.factor(dados$TRAT)
+require(GExpDes)
+
+GExpDesView()
+
+
+
 
 ##Rodando a an?lise de vari?ncia para produtividade
 resultado<-aov(dados$PROD~dados$TRAT)
